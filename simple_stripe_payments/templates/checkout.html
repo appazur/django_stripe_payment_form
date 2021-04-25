@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' rel='stylesheet' type='text/css' />
+    <script src="https://js.stripe.com/v3/"></script>
+    <link href='{% static "simple_stripe_payments/checkout.css" %}' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div class="child-center">
+        <h1>Payment</h1>
+        <h4>Credit Card | Debit Card</h4>
+
+        {# % if request.user.is_authenticated %}<p>{{ request.user.email }}{% endif % #}
+
+          {% if request.GET.success %}
+        <p><strong>Your payment was successful. Thank you.</strong>
+          {% else %}
+        <form id="id_form">{% csrf_token %}
+        <div class="form-group">
+            <label for="id_invoice">Invoice Number:</label>
+            <input type="text" class="form-control" name="invoice" id="id_invoice"></input>
+        </div>
+        <div class="form-group">
+        <label for="id_amount">CA$</label>
+        <input type="number" class="form-control" name="amount" id="id_amount" value="{{ amount|default:'' }}"></input>
+        <button id="checkout-button" class="btn btn-info">Pay</button>
+        </div>
+        <div class="errmsg" id="id_errmsg"></div>
+        </form>
+          {% endif %}
+        <hr>
+        <p><img class="stripe-logo" src="{% static 'simple_stripe_payments/stripe.svg' %}" />
+    </div>
+
+    {{ get_session_url|json_script:'get_session_url' }}
+    {{ stripe_public_key|json_script:'stripe_public_key' }}
+    <script src="{% static 'simple_stripe_payments/checkout.js' %}"></script>
+</body>

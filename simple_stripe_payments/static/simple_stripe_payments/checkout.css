@@ -1,0 +1,33 @@
+body {
+    font-family: "Lato",Arial,sans-serif; 
+    margin: 0 1em 0 1em; 
+    /*max-width: 8in;*/ /* keep page to a reasonable, printable width */
+}
+h4,h5,h6 {
+    color: #677cab; 
+}
+img.stripe-logo {
+    height: 30px;
+}
+.child-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align: center;
+  text-align: center;
+}
+.errmsg {
+    font-weight: bold;
+    color: red;
+    min-height: 2em;
+}
+#id_amount, #id_invoice {
+    width: 100px;
+    display:inline-block;
+}
+#checkout-button {
+    position: relative;
+    top: -2px;
+    width: 5em;
+}
