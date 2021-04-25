@@ -1,6 +1,6 @@
 # Stripe Payment Form for Django Projects
 
-This project provides an app for adding a simple payment form to a Django project.
+This Stripe Payment Form demo project includes a reusable app for adding a simple payment form to your Django projects.
 Most [Stripe Checkout](https://stripe.com) documentation assumes you are going to attempt something more ambitious, with Products, Customers, webhooks, etc.
 This project, on the other hand, is just a simple form that allows the user to enter an invoice number and payment amount,
 and then proceed to make a credit or debit card payment.
@@ -23,3 +23,9 @@ You can also include the app in your own project.
 ----
 
 [Stripe vs PayPal](https://www.appazur.com/en/2021/03/26/usa-payments-for-canadian/)
+
+----
+
+![appazur.com](https://www.appazur.com/img/logo.png)
+
+Sponsored by Appazur Solutions Inc. - [Mobile Apps and Digital Signage for Education](https://www.appazur.com/?ref=github)
